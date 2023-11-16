@@ -19,7 +19,7 @@ jobs:
           node-version: '16'
 
       - name: Set working directory
-        run: cd financial-health-calculator
+        run: ls financial-health-calculator
 
       - name: Install dependencies
         run: npm install
