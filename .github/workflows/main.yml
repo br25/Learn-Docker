@@ -13,35 +13,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Set working directory for frontend
+        run: cd financial-health-calculator
+
+      - name: Set up Node.js for frontend
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Print current directory
-        run: pwd
-      
-      - name: Print directory contents
-        run: ls -la
-      
-      - name: Set working directory
-        run: cd financial-health-calculator
-      
-      - name: Print current directory after cd
-        run: pwd
-      
-      - name: Print directory contents after cd
-        run: ls -la
-      
-      - name: Install dependencies
+      - name: Install dependencies for frontend
         run: npm install
-      
 
       - name: Build and test frontend
         run: npm run build
 
       - name: Set working directory for backend
         run: cd ../backend
+
+      - name: Set up Node.js for backend
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
       - name: Install dependencies for backend
         run: npm install
